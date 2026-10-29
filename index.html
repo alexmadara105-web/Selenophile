@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eighteen Moons · Vanmathi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Noto+Serif+Tamil:wght@500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b2e25;--ink:#fff4ec;--acc:#ff9db1;--dk:#14463a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body.day{--bg:#f7efe2;--ink:#1d2147;--acc:#b06f28}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Karla,system-ui,sans-serif;font-size:1.1rem;line-height:1.6;overflow-x:hidden;transition:background 2.5s,color 2.5s}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity 2.5s}
+body.day #sky{opacity:0}
+#sun{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 2.5s;background:radial-gradient(ellipse at 50% 115%,rgba(255,176,110,.75),rgba(255,214,170,.25) 45%,transparent 70%)}
+body.day #sun{opacity:1}
+section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 22px}
+h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--acc);transition:color 2.5s}
+h1{font-size:clamp(2.8rem,13vw,5.2rem);line-height:1.05;margin-top:22px}
+h2{font-size:clamp(1.7rem,7vw,2.6rem);margin-bottom:18px;font-style:italic}
+.ta{font-family:'Noto Serif Tamil',serif;color:var(--acc)}
+p{max-width:520px;margin-bottom:14px}.dim{opacity:.72;font-size:1rem}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s,transform 1s}.rv.on{opacity:1;transform:none}
+#hm{filter:drop-shadow(0 0 40px rgba(240,217,140,.55));animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.tl{letter-spacing:.3em;font-size:.85rem;color:var(--acc);margin-bottom:12px;font-weight:500}
+.chip{display:inline-block;margin-top:16px;padding:8px 18px;border:1px solid var(--acc);border-radius:30px;color:var(--acc)}
+.g{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:400px}
+.mc{background:color-mix(in srgb,var(--ink) 7%,transparent);border:1px solid transparent;border-radius:14px;padding:8px 4px 4px;color:var(--ink);font:inherit;cursor:pointer;transition:.3s}
+.mc svg{width:100%;height:auto;display:block}.mc small{font-size:.8rem;opacity:.8}
+.mc.s{border-color:var(--acc);transform:scale(1.07);background:color-mix(in srgb,var(--acc) 18%,transparent)}
+#dp{margin-top:22px;max-width:440px;min-height:15rem;padding:22px 20px;border-radius:20px;background:color-mix(in srgb,var(--ink) 8%,transparent);border:1px solid color-mix(in srgb,var(--acc) 40%,transparent)}
+#dp .w{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;line-height:1.4;margin-top:10px}
+.cs{display:grid;gap:14px;max-width:460px;width:100%;text-align:left}
+.c{padding:16px 18px;border-radius:16px;border-left:3px solid var(--acc);background:color-mix(in srgb,var(--ink) 7%,transparent)}
+.c b{color:var(--acc);font-size:1.2rem}
+.in{width:100%;max-width:340px;padding:13px 16px;border-radius:30px;border:1px solid var(--acc);background:transparent;color:var(--ink);font:inherit;font-size:1.1rem;text-align:center;margin-bottom:14px}
+.btn{padding:13px 30px;border-radius:30px;border:0;background:var(--acc);color:var(--bg);font:inherit;font-weight:500;font-size:1.1rem;cursor:pointer}
+.lan{position:fixed;bottom:-130px;width:92px;min-height:112px;padding:36px 8px 10px;border-radius:42% 42% 16% 16%;background:linear-gradient(#ffd98a,#ff8a3d);color:#4a2200;font:500 12px/1.25 Karla,sans-serif;overflow-wrap:anywhere;box-shadow:0 0 40px 12px rgba(255,170,60,.55);z-index:6;pointer-events:none;animation:rl 11s ease-in forwards}
+@keyframes rl{to{transform:translate(30px,-130vh) rotate(6deg);opacity:0}}
+#mus{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;z-index:9;padding:9px 15px;border-radius:30px;border:1px solid var(--acc);background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(8px);color:var(--acc);font:inherit;font-size:.95rem;cursor:pointer}
+.fa{position:relative;width:100%;max-width:400px;height:300px;border:1px solid color-mix(in srgb,var(--acc) 40%,transparent);border-radius:20px;overflow:hidden;background:color-mix(in srgb,var(--ink) 5%,transparent)}.fr{position:absolute;top:-50px;font-size:2.4rem;cursor:pointer;user-select:none;animation:fd linear forwards}.pp{width:30px;height:46px;border-radius:50% 50% 46% 46%;background:linear-gradient(160deg,#ffbe5c,#ee7d1d)}@keyframes fd{to{transform:translateY(370px) rotate(120deg)}}
+#dc{width:100%;max-width:400px;aspect-ratio:4/3;background:#103a2e;border:1px solid var(--acc);border-radius:18px;touch-action:none;margin-bottom:14px}.row{display:flex;gap:12px;justify-content:center}
+.ss{position:fixed;width:90px;height:2px;background:linear-gradient(90deg,#fff,transparent);z-index:0;opacity:0;pointer-events:none;animation:ssa 8s linear infinite}body.day .ss{display:none}@keyframes ssa{0%{transform:rotate(30deg) translateX(0);opacity:0}2%{opacity:1}12%{transform:rotate(30deg) translateX(340px);opacity:0}100%{opacity:0}}
+.sp{position:fixed;pointer-events:none;z-index:8;color:var(--acc);font-size:12px;animation:sf .9s forwards}@keyframes sf{to{opacity:0;transform:translateY(18px) scale(.3)}}
+h2{background:linear-gradient(90deg,var(--acc),color-mix(in srgb,var(--acc) 40%,var(--ink)),var(--acc));background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 6s linear infinite}@keyframes sh{to{background-position:200%}}
+.lt{display:inline-block;opacity:0;animation:lr .9s forwards}@keyframes lr{from{transform:translateY(30px) rotate(8deg)}to{opacity:1;transform:none}}
+.ff{position:fixed;border-radius:50%;z-index:0;pointer-events:none;opacity:0;background:currentColor;box-shadow:0 0 12px 4px currentColor;animation:ffa 10s ease-in-out infinite}body.day .ff{display:none}@keyframes ffa{0%,100%{opacity:0;transform:translate(0,0)}30%,70%{opacity:.9}50%{transform:translate(40px,-70px)}}
+textarea.in{resize:none;font-family:inherit}.op{margin:6px 0;width:100%;max-width:340px;background:transparent;color:var(--ink);border:1px solid var(--acc)}
+#bp{position:fixed;inset:0;z-index:30;background:rgba(5,20,15,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;animation:pp .8s cubic-bezier(.2,1.4,.4,1)}@keyframes pp{from{transform:scale(.3);opacity:0}}.pb{background:var(--bg);color:var(--ink);border:2px solid var(--acc);border-radius:26px;padding:30px 22px;max-width:380px;box-shadow:0 0 80px rgba(255,157,177,.5)}.fw{position:fixed;top:-50px;z-index:31;pointer-events:none;animation:fwd linear forwards}@keyframes fwd{to{transform:translate(40px,115vh) rotate(300deg)}}
+.dn{margin-top:26px;font-size:1.6rem;animation:fl 2s infinite;opacity:.7}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><radialGradient id="g" cx=".35" cy=".3"><stop offset="0" stop-color="#fffdf2"/><stop offset="1" stop-color="#e6d598"/></radialGradient></defs></svg>
+<canvas id="sky"></canvas><div id="sun"></div>
+<button id="mus">🎵 Play music</button>
+
+<section>
+  <div class="tl">TODAY'S MOON</div><div id="hm"></div><div class="dim" id="hp" style="margin-top:8px"></div>
+  <h1>Eighteen<br>Moons</h1>
+  <div class="ta" style="font-size:1.5rem;margin-top:10px">வான்மதி · Vanmathi</div>
+  <p class="dim" style="margin-top:12px">A birthday gift for 3 September 2027</p>
+  <div class="chip" id="cd"></div>
+  <div class="dn">⌄</div>
+</section>
+
+<section>
+  <div class="rv">
+    <h2>Last year, a night sky. This year, your whole story.</h2>
+    <p>Every birthday you’ve ever had, there was a moon above it. I looked up the real one for each of your 3rd Septembers, from the night you were born until now.</p>
+    <p class="dim">The moon at the top is today’s real moon, drawn live from today’s date, so it is different every night.</p>
+  </div>
+</section>
+
+<section>
+  <div class="rv">
+    <h2>Every moon that watched over you</h2>
+    <div class="g" id="g"></div>
+    <div id="dp"></div>
+    <p class="dim" style="margin-top:12px">Tap any moon. Phases are calculated approximately.</p>
+  </div>
+</section>
+
+<section><div class="rv"><h2>Things that make you, you</h2><div class="cs"><div class="c"><b>⚫ Black</b><br>Your favourite colour is the colour of the night sky, the stage every moon shines on.</div><div class="c"><b>🎬 Dhanush</b><br>Great hero, great story. May your 18th year have a great plot and an even better soundtrack.</div><div class="c"><b>😂 Shinchan</b><br>Laughing at silly things is a superpower. May your year be full of that kind of laughing.</div></div></div></section>
+<section><div class="rv"><h2>Catch the sweet stuff</h2><p class="dim">Tap the falling watermelons and papayas.</p><button class="btn" id="fb" style="margin-bottom:14px">Start</button><div class="fa" id="fa"></div><p class="dim" id="fs" style="margin-top:12px">Score: 0</p></div></section>
+<section><div class="rv"><h2>Pick a chocolate</h2><div class="row" style="flex-wrap:wrap"><button class="btn cb" data-t="Rest is part of the plan. Take your break.">KitKat</button><button class="btn cb" data-t="May everything good in your year be the sweet middle.">Oreo</button><button class="btn cb" data-t="A big smile, like the very first bite.">Dairy Milk</button></div><p id="cm" style="margin-top:22px;min-height:3.2em;font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem">Tap one 🍫</p></div></section>
+<section><div class="rv"><h2>For the little artist</h2><p class="dim">Draw something. A moon, a star, anything you like.</p><canvas id="dc" width="400" height="300"></canvas><div class="row"><button class="btn" id="dcl">Clear</button><button class="btn" id="dsv">Save and send to him</button></div></div></section>
+<section id="dawn">
+  <div class="rv">
+    <h2>The moon in Tamil life</h2>
+    <div class="cs">
+      <div class="c"><b>வான் + மதி</b><br>Your name is the sky’s moon. <i>Vaan</i> is sky and <i>mathi</i> is moon.</div>
+      <div class="c"><b>திங்கள் · Thingal</b><br>Monday in Tamil is named for the moon.</div>
+      <div class="c"><b>பௌர்ணமி · அமாவாசை</b><br>Pournami is the full-moon day and Amavasai the new-moon day. Festivals like Chithirai Pournami and Karthigai Deepam are tied to the full moon.</div>
+      <div class="c"><b>Your 18th</b><br>You were born under a nearly full moon. You turn 18 under a thin, brand-new crescent: a fresh beginning.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="rv">
+    <h2>Send a lantern</h2>
+    <p>Type a wish, for yourself or for anyone, and let it float up into the dawn. It's also sent to me on Telegram, so only press the button if you'd like me to see it.</p>
+    <input class="in" id="wi" maxlength="60" placeholder="Your wish…">
+    <button class="btn" id="wb">Release lantern and send it to him 🏮</button>
+  </div>
+</section>
+
+<section>
+  <div class="rv">
+    <div class="ta" style="font-size:1.9rem;margin-bottom:12px">பிறந்தநாள் வாழ்த்துகள், வான்மதி!</div>
+    <h2>Happy 18th birthday</h2>
+    <p>I promised to make you something new every birthday, and this is year two. Turning 18 feels like a sunrise, so this page starts in night and ends in morning.</p>
+    <p>No strings and no reply needed. I just hope today is full of light, and that this year takes you wherever you want to go. 🌙</p>
+    </div></section><section><div class="rv"><h2>P.S. Almost a year later</h2><p>I told you I would wait, and I meant it. The moon came back every single night, patient and steady, and I'm still here under the same sky.</p><p class="ta" style="font-size:1.15rem">நிலவு போல, அமைதியாக இங்கேயே இருக்கிறேன்.</p><p>But I never want my waiting to feel like a weight on you. You owe me no answer and no explanation. If your heart ever says yes, I'll be the happiest person under the moon. If it doesn't, I'll still be glad I know you, and I'll still cheer for you.</p></div></section><section><div class="rv"><h2>Ask me anything</h2><p class="dim">Any question, silly or serious. It's sent to my Telegram, and only I will read it.</p><textarea class="in" id="q1" rows="3" maxlength="400" placeholder="Your question…" style="border-radius:18px"></textarea><button class="btn" id="b1">Send question</button><p class="dim" id="r1" style="margin-top:12px"></p></div></section><section><div class="rv"><h2>Your reply, only if you want to</h2><p>There's no pressure and no deadline. You can answer, take your time, or not answer at all, and every one of those is okay. Whatever you choose is sent to my Telegram, and only I will see it. Nothing on this page is sent unless you press a button that says it sends to me.</p><button class="btn op" data-v="Yes, let's talk. I love you too.">Yes, let's talk. I love you too ❤️</button><button class="btn op" data-v="Let's wait for a while">Let's wait for a while</button><button class="btn op" data-v="Friends, always">Let's stay friends</button><button class="btn op" data-v="No, please don't wait for me">No, please don't wait for me</button><textarea class="in" id="q2" rows="2" maxlength="300" placeholder="Anything you'd like to add (optional)" style="border-radius:18px;margin-top:14px"></textarea><button class="btn" id="b2">Send my reply</button><p class="dim" id="r2" style="margin-top:12px"></p><p class="dim" style="margin-top:30px">Made under the moonlight, for Vanmathi</p>
+  </div>
+</section>
+
+<script>
+// ===== PASTE YOUR TELEGRAM DETAILS ON THE NEXT LINE =====
+const TT='9036507251:AAGpFQyM0qdk31r2wDnZe7JYDau91GVoRPE',TC='8806010163';
+const D=29.530588853;
+function ph(y,m,d,h){const a=(Date.UTC(y,m,d,h,0)-Date.UTC(2000,0,6,18,14))/864e5;return(((a%D)+D)%D)/D}
+function nm(p){return p<.03||p>.97?'New moon':p<.22?'Waxing crescent':p<.28?'First quarter':p<.47?'Waxing gibbous':p<.53?'Full moon':p<.72?'Waning gibbous':p<.78?'Last quarter':'Waning crescent'}
+function mo(p,s){const w=p>.5,q=w?1-p:p,k=Math.cos(2*Math.PI*q),rx=Math.abs(k)*50;return'<svg viewBox="-55 -55 110 110" width="'+s+'" height="'+s+'"><circle r="50" fill="var(--dk)"/><path d="M0 -50A50 50 0 0 1 0 50A'+rx+' 50 0 0 '+(k<0?1:0)+' 0 -50Z" fill="url(#g)"'+(w?' transform="scale(-1,1)"':'')+'/><circle r="50" fill="none" stroke="#f0d98c" stroke-opacity=".35"/></svg>'}
+const p0=(((Date.now()-Date.UTC(2000,0,6,18,14))/864e5%D)+D)%D/D;document.getElementById('hm').innerHTML=mo(p0,230);document.getElementById('hp').textContent=nm(p0)+' · about '+Math.round((1-Math.cos(2*Math.PI*p0))/2*100)+'% lit';
+const cd=document.getElementById('cd'),T=new Date(2027,8,3).getTime();
+function ln(t){const l=document.createElement('div');l.className='lan';l.textContent=t;l.style.left=(6+Math.random()*68)+'vw';document.body.appendChild(l);setTimeout(()=>l.remove(),11500)}
+function tk(){const d=T-Date.now();if(d>0){const s=Math.floor(d/1e3);cd.textContent=(s>=86400?Math.floor(s/86400)+'d ':'')+Math.floor(s%86400/3600)+'h '+Math.floor(s%3600/60)+'m '+s%60+'s until you turn 18'}else if(-d<864e5){cd.textContent='🎂 Happy 18th birthday, Vanmathi!';if(!tk.f){tk.f=1;['Happy 18th!','Happy birthday, Vanmathi','🌙'].forEach((t,i)=>setTimeout(()=>ln(t),1000+i*1200))}}else cd.textContent='Your 18th birthday moon'}
+tk();setInterval(tk,1000);
+const W=['The night you were born, the moon was almost full. The world was ready for you.','First candle. The moon was already your night-light.','Tiny steps, big wonder.','May every question you ask get a kind answer.','Bedtime stories and moonlit windows.','School bag, bright eyes, a sky full of questions.','Loose teeth and big laughs.','Learning that the moon follows the car, and it really does look that way.','Every little dream deserves a night sky.','Growing taller, braver, and kinder.','Double digits! Ten years of moons.','New classes, new friends, new courage.','Becoming your own kind of brilliant.','May you always be gentle with yourself.','May your confidence grow like the waxing moon.','Fifteen: finding your voice.','Sixteen: dream bigger than the sky.','Seventeen: one more year, one more light.','Eighteen: a brand-new moon for a brand-new chapter. Every beginning starts small and bright.'];
+const gr=document.getElementById('g'),dp=document.getElementById('dp');
+function sel(i){const y=2009+i,p=ph(y,8,3,13),il=Math.round((1-Math.cos(2*Math.PI*p))/2*100);[...gr.children].forEach((c,j)=>c.classList.toggle('s',j===i));dp.innerHTML=mo(p,110)+'<div style="margin-top:8px"><b class="ta" style="font-family:Karla,sans-serif">'+(i?'Age '+i:'Born')+' · 3 Sep '+y+'</b></div><div class="dim">'+nm(p)+', about '+il+'% lit</div><div class="w">'+W[i]+'</div>'}
+for(let i=0;i<=18;i++){const b=document.createElement('button');b.className='mc';b.innerHTML=mo(ph(2009+i,8,3,13),70)+'<small>'+(i||'Born')+'</small>';b.onclick=()=>sel(i);gr.appendChild(b)}
+sel(18);
+document.getElementById('wb').onclick=()=>{const i=document.getElementById('wi'),l=document.createElement('div');l.className='lan';l.textContent=i.value.trim()||'Happy birthday!';l.style.left=(6+Math.random()*68)+'vw';document.body.appendChild(l);setTimeout(()=>l.remove(),11500);i.value=''};
+let sc=0,gt;const fa=document.getElementById('fa'),fs=document.getElementById('fs');
+function sp(){const e=document.createElement('div');if(Math.random()<.5)e.textContent='🍉';else e.className='pp';e.className+=' fr';e.style.left=Math.random()*85+'%';e.style.animationDuration=(3+Math.random()*2)+'s';e.onpointerdown=()=>{sc++;fs.textContent='Score: '+sc+(sc>=10?' · Sweet! May your year be this sweet 🍉':'');e.remove()};fa.appendChild(e);setTimeout(()=>e.remove(),5200)}
+document.getElementById('fb').onclick=()=>{clearInterval(gt);sc=0;fs.textContent='Score: 0';gt=setInterval(sp,700);setTimeout(()=>clearInterval(gt),30000)};
+document.querySelectorAll('.cb').forEach(b=>b.onclick=()=>document.getElementById('cm').textContent=b.dataset.t);
+const dc=document.getElementById('dc'),dx=dc.getContext('2d'),CL=['#f0d98c','#ffffff','#ff9ec4','#9ad0ff'];let dd=false,lx,ly,sk=0;dx.lineCap='round';dx.lineWidth=4;
+function ps(e){const r=dc.getBoundingClientRect();return[(e.clientX-r.left)*400/r.width,(e.clientY-r.top)*300/r.height]}
+dc.onpointerdown=e=>{dd=true;dc.setPointerCapture(e.pointerId);[lx,ly]=ps(e);dx.strokeStyle=CL[sk++%4]};
+dc.onpointermove=e=>{if(!dd)return;const p=ps(e);dx.beginPath();dx.moveTo(lx,ly);dx.lineTo(p[0],p[1]);dx.stroke();lx=p[0];ly=p[1]};dc.onpointerup=()=>dd=false;
+document.getElementById('dcl').onclick=()=>dx.clearRect(0,0,400,300);
+document.getElementById('dsv').onclick=()=>{const a=document.createElement('a');a.download='my-moon-drawing.png';a.href=dc.toDataURL();a.click()};
+for(let i=0;i<4;i++){const s=document.createElement('div');s.className='ss';s.style.top=(5+Math.random()*30)+'%';s.style.left=(Math.random()*50)+'%';s.style.animationDelay=(i*2.3)+'s';document.body.appendChild(s)}
+addEventListener('pointermove',e=>{if(Math.random()<.5)return;const d=document.createElement('div');d.className='sp';d.textContent='✦';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),900)});
+
+async function snd(sub,msg,o){o.textContent='Sending…';try{if(TT==='YOUR_BOT_TOKEN'){o.textContent='(Demo mode: not connected to Telegram yet.)';return}const r=await fetch('https://api.telegram.org/bot'+TT+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:TC,text:sub+'\n\n'+msg})}),j=await r.json();o.textContent=j.ok?'Sent. Thank you. 🌙':'Could not send. Please try again later.'}catch(e){o.textContent='Could not send right now. Please try again later.'}}
+document.getElementById('b1').onclick=()=>{const v=document.getElementById('q1').value.trim(),o=document.getElementById('r1');if(!v){o.textContent='Type your question first.';return}snd('A question from Vanmathi','Question: '+v,o)};
+let ch='';document.querySelectorAll('.op').forEach(b=>b.onclick=()=>{ch=b.dataset.v;document.querySelectorAll('.op').forEach(x=>x.style.outline='');b.style.outline='3px solid var(--ink)'});
+document.getElementById('b2').onclick=()=>{const o=document.getElementById('r2'),n=document.getElementById('q2').value.trim();if(!ch){o.textContent='Choose one first, or just close the page. That is okay too.';return}snd('Vanmathi replied','Reply: '+ch+(n?'\nNote: '+n:''),o)};
+const h1=document.querySelector('h1');h1.innerHTML=h1.innerHTML.split('<br>').map(w=>[...w].map((c,i)=>'<span class="lt" style="animation-delay:'+(.3+i*.09)+'s">'+c+'</span>').join('')).join('<br>');
+for(let i=0;i<16;i++){const f=document.createElement('div'),s=3+Math.random()*4;f.className='ff';f.style.cssText='left:'+Math.random()*95+'%;top:'+(20+Math.random()*75)+'%;width:'+s+'px;height:'+s+'px;color:'+(i%2?'#ff9db1':'#b8f59a')+';animation-delay:'+Math.random()*10+'s;animation-duration:'+(8+Math.random()*7)+'s';document.body.appendChild(f)}
+function bd(){const o=document.createElement('div');o.id='bp';o.innerHTML='<div class="pb"><div style="font-size:4rem">🎂</div><h2>Happy 18th Birthday,<br>Vanmathi!</h2><p>The moon, the stars, and every flower in the sky are celebrating you today.</p><button class="btn" id="bx">Open my gift 🎁</button></div>';document.body.appendChild(o);document.getElementById('bx').onclick=()=>o.remove();let n=0;const iv=setInterval(()=>{const f=document.createElement('div');f.className='fw';f.textContent=['🌸','🌺','🌼','🌷','🌹','🌻'][n%6];f.style.left=Math.random()*95+'vw';f.style.fontSize=(20+Math.random()*24)+'px';f.style.animationDuration=(5+Math.random()*4)+'s';document.body.appendChild(f);setTimeout(()=>f.remove(),9500);if(++n>90)clearInterval(iv)},250)}
+let bdd=0;function ck(){const d=T-Date.now();if(d<=0&&-d<864e5&&!bdd){bdd=1;bd()}}ck();setInterval(ck,1000);if(location.hash==='#birthday')bd();
+function flw(){const c=document.createElement('canvas');c.style.cssText='position:absolute;left:0;top:0;width:100%;height:'+innerHeight+'px;z-index:31;pointer-events:none';document.body.appendChild(c);const x=c.getContext('2d'),r=devicePixelRatio||1,G=['🌸','🌺','🌼','🌷','🌹','🌻'],F=[],t0=performance.now();let n=0;c.width=innerWidth*r;c.height=innerHeight*r;x.scale(r,r);
+(function f(t){const e=t-t0,dt=Math.min(.05,(t-(f.l||t))/1e3);f.l=t;x.clearRect(0,0,innerWidth,innerHeight);if(e<22000&&Math.random()<7*dt)F.push({x:Math.random()*innerWidth,y:-30,v:80+Math.random()*110,s:20+Math.random()*24,p:Math.random()*6,g:G[n++%6]});for(const o of F){o.y+=o.v*dt;o.p+=2*dt;x.save();x.translate(o.x+Math.sin(o.p)*30,o.y);x.rotate(o.p);x.font=o.s+'px serif';x.textAlign='center';x.fillText(o.g,0,0);x.restore()}for(let i=F.length;i--;)if(F[i].y>innerHeight+40)F.splice(i,1);if(e<22000||F.length)requestAnimationFrame(f);else c.remove()})(t0)}
+function bd(){const o=document.createElement('div');o.id='bp';o.innerHTML='<div class="pb"><div style="font-size:4rem">🎂</div><h2>Happy 18th Birthday,<br>Vanmathi!</h2><p>The moon, the stars, and every flower in the sky are celebrating you today.</p><button class="btn" id="bx">Open my gift 🎁</button></div>';document.body.appendChild(o);document.getElementById('bx').onclick=()=>o.remove();flw()}
+function adb(t,l,get,ph){return;const b=document.createElement('button'),o=document.createElement('p');b.className='btn';b.textContent=l;b.style.marginTop='12px';o.className='dim';o.style.marginTop='8px';t.after(b);b.after(o);b.onclick=()=>{if(ph)return sph(o);const m=get();if(!m){o.textContent='Try it first, then share.';return}snd('Vanmathi shared',m,o)}}
+function sph(o){if(TT==='YOUR_BOT_TOKEN'){o.textContent='(Demo mode: not connected to Telegram yet.)';return}o.textContent='Sending…';const t=document.createElement('canvas');t.width=400;t.height=300;const g=t.getContext('2d');g.fillStyle='#103a2e';g.fillRect(0,0,400,300);g.drawImage(dc,0,0);t.toBlob(async bl=>{const f=new FormData();f.append('chat_id',TC);f.append('caption','A drawing from Vanmathi');f.append('photo',bl,'drawing.png');try{const r=await fetch('https://api.telegram.org/bot'+TT+'/sendPhoto',{method:'POST',body:f}),j=await r.json();o.textContent=j.ok?'Sent. Thank you. 🌙':'Could not send. Please try again later.'}catch(e){o.textContent='Could not send right now.'}})}
+let lc='',lw='';document.querySelectorAll('.cb').forEach(b=>b.addEventListener('click',()=>lc=b.textContent));document.getElementById('wi').addEventListener('input',e=>lw=e.target.value.trim());
+adb(fs,'💌 Share my score with him',()=>sc?'Catch-the-sweets score: '+sc:'');
+adb(document.getElementById('cm'),'💌 Tell him my pick',()=>lc?'Chocolate pick: '+lc:'');
+adb(document.getElementById('wb'),'💌 Send this wish to him',()=>lw?'Lantern wish: '+lw:'');
+adb(document.getElementById('dcl').parentElement,'💌 Send my drawing to him',null,true);
+const mk=e=>{const o=document.createElement('p');o.className='dim';o.style.marginTop='8px';e.after(o);return o},wo=mk(document.getElementById('wb')),dso=mk(document.getElementById('dcl').parentElement);
+document.getElementById('wb').addEventListener('click',()=>{if(lw)snd('Vanmathi released a lantern','Lantern wish: '+lw,wo)});
+document.getElementById('dsv').addEventListener('click',()=>sph(dso));
+// night to morning
+const dw=document.getElementById('dawn');function dy(){document.body.classList.toggle('day',scrollY+innerHeight*.45>dw.offsetTop)}addEventListener('scroll',dy);dy();
+const io=new IntersectionObserver(e=>e.forEach(v=>v.isIntersecting&&v.target.classList.add('on')),{threshold:.2});document.querySelectorAll('.rv').forEach(r=>io.observe(r));
+// stars
+const c=document.getElementById('sky'),x=c.getContext('2d');let W2,H,S=[];
+function rs(){W2=c.width=innerWidth;H=c.height=innerHeight;S=Array.from({length:130},()=>({x:Math.random()*W2,y:Math.random()*H,r:Math.random()*1.3+.3,p:Math.random()*6,s:Math.random()*.02+.005}))}rs();addEventListener('resize',rs);
+(function f(){x.clearRect(0,0,W2,H);x.fillStyle='#fff';for(const s of S){s.p+=s.s;x.globalAlpha=.35+.65*Math.abs(Math.sin(s.p));x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill()}requestAnimationFrame(f)})();
+// music box
+let ac,bus,tm,pl=false,bi=0;const mb=document.getElementById('mus'),SC=[587.3,659.3,740,880,987.8,1174.7],CH=[[293.7,440,587.3],[246.9,370,493.9],[196,293.7,392],[220,329.6,440]];
+function nt(f,t,d,v){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(bus);o.start(t);o.stop(t+d+.1)}
+function bar(){const t=ac.currentTime+.05;CH[bi%4].forEach(f=>nt(f,t,6,.04));for(let k=0;k<8;k++)if(Math.random()<.7)nt(SC[Math.floor(Math.random()*6)],t+k*.75,1.8,.07);bi++}
+mb.onclick=()=>{try{if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();bus=ac.createGain();bus.gain.value=.55;const dl=ac.createDelay();dl.delayTime.value=.38;const fb=ac.createGain();fb.gain.value=.4;bus.connect(ac.destination);bus.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(ac.destination)}if(!pl){ac.resume();bar();tm=setInterval(bar,6000);mb.textContent='♪ Music on · tap to pause'}else{clearInterval(tm);ac.suspend();mb.textContent='🎵 Play music'}pl=!pl}catch(e){mb.textContent='Music not supported'}};
+</script>
+</body>
+</html>
